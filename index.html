@@ -71,11 +71,12 @@
         window.onload = function () {
             console.log("starting login");
             var tokenStored = angular.element(document.getElementById('tunid')).scope().getToken();
+            $("#token").val(tokenStored);
             console.log(tokenStored);
             console.log("stop login");
         }
         function getapi() {
-            console.log("starting getapi");
+            var id_token = angular.element(document.getElementById('tunid')).scope().getToken();
             var settings = {
                 "async": true,
                 "crossDomain": true,
@@ -83,10 +84,12 @@
                 "method": "GET",
                 "headers": {
                     "cache-control": "no-cache",
+                    "Authorization": id_token
                 }
             }
 
             $.ajax(settings).done(function (response) {
+                $("#result").val(response.responseText);
                 console.log(response);
             }).fail(function (error) {
                 if (error.status == 401) {
