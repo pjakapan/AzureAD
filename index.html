@@ -64,5 +64,12 @@
         <script src="App/Scripts/userDataCtrl.js"></script>
         <script src="App/Scripts/catListCtrl.js"></script>
         <script src="App/Scripts/catListSvc.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                console.log("starting login");
+                angular.element(document.getElementById('tunid')).scope().login();
+                console.log("stop login");
+            }
+        </script>
 </body>
 </html>
