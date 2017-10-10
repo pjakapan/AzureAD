@@ -70,7 +70,7 @@
     <script type="text/javascript">
         window.onload = function () {
             console.log("starting login");
-            var tokenStored = angular.element(document.getElementById('tunid')).scope().getCachedToken();
+            var tokenStored = angular.element(document.getElementById('tunid')).scope().getToken();
             console.log(tokenStored);
             console.log("stop login");
         }
