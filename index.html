@@ -89,7 +89,7 @@
             }
 
             $.ajax(settings).done(function (response) {
-                $("#result").text(response.responseText);
+                $("#result").text(response);
                 console.log(response);
             }).fail(function (error) {
                 if (error.status == 401) {
