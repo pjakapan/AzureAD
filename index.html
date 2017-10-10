@@ -43,7 +43,7 @@
                 <div class="page-header">
                     <h1>Cat Manager 2017</h1>
                 </div>
-                <p This sample demonstrates how to take advantage of ADAL JS for adding Azure AD authentication to your AngularJS apps.</p>
+                <p id="result"> This sample demonstrates how to take advantage of ADAL JS for adding Azure AD authentication to your AngularJS apps.</p>
                 <button onclick="getapi()">Click me</button>
             </div>
         </div>
@@ -87,9 +87,13 @@
             $.ajax(settings).done(function (response) {
                 console.log(response);
             }).fail(function (error) {
-                console.log(error);
+                if (error.status == 401) {
+                    console.log(error.responseText);
+                    angular.element(document.getElementById('tunid')).scope().login();
+                } else {
+                    console.log(error.responseText);
+                }
             });
-
         };
     </script>
 </body>
