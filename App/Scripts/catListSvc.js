@@ -4,7 +4,7 @@ angular.module('catApp')
     var apiUrl = 'https://together.azure-api.net';
     return {
         getItems : function(){
-            return $http.get(apiUrl + '/api/CatList');
+            return $http.get(apiUrl + '/login');
         },
         getItem : function(id){
             return $http.get(apiUrl + '/api/CatList/' + id);
