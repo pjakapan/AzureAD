@@ -72,6 +72,7 @@
             var tokenStored = angular.element(document.getElementById('tunid')).scope().getToken();
             $("#token").text("Bearer " + tokenStored);
         }
+
         function getapi() {
             var id_token = angular.element(document.getElementById('tunid')).scope().getToken();
             var settings = {
@@ -86,7 +87,6 @@
             }
             $.ajax(settings).done(function (response) {
                 $("#result").text(response);
-                console.log(response);
             }).fail(function (error) {
                 if (error.status == 401) {
                     console.log(error.responseText);

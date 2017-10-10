@@ -4,14 +4,14 @@ angular.module('catApp', ['ngRoute','AdalAngular'])
 
     $routeProvider.when("/Home", {
         controller: "homeCtrl",
-        templateUrl: "/App/Views/Home.html",
+        templateUrl: "/AzureAD/App/Views/Home.html",
     }).when("/CatList", {
         controller: "catListCtrl",
-        templateUrl: "/App/Views/CatList.html",
+        templateUrl: "/AzureAD/App/Views/CatList.html",
         requireADLogin: true,
     }).when("/UserData", {
         controller: "userDataCtrl",
-        templateUrl: "/App/Views/UserData.html",
+        templateUrl: "/AzureAD/App/Views/UserData.html",
     }).otherwise({ redirectTo: "/Home" });
 
     adalProvider.init(
