@@ -12,7 +12,7 @@ angular.module('catApp')
     };
     $scope.getToken = function () {
         var resource = "a78605c9-bd50-46af-a8b1-166fd0b2401e";
-        var tokenStored = authService.getCachedToken(resource);
+        var tokenStored = adalService.getCachedToken(resource);
         return tokenStored
     };
 
