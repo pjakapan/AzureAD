@@ -43,7 +43,7 @@
                 <div class="page-header">
                     <h1>Cat Manager 2017</h1>
                 </div>
-                <p>This sample demonstrates how to take advantage of ADAL JS for adding Azure AD authentication to your AngularJS apps.</p>
+                <p onclick="getapi">This sample demonstrates how to take advantage of ADAL JS for adding Azure AD authentication to your AngularJS apps.</p>
             </div>
         </div>
         <div class="row">
@@ -71,6 +71,24 @@
         //    angular.element(document.getElementById('tunid')).scope().login();
         //    console.log("stop login");
         //}
+        function getapi() {
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://tgtapidemo.azure-api.net/tun/login",
+                "method": "GET",
+                "headers": {
+                    "cache-control": "no-cache",
+                }
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            }).fail(function (error) {
+                console.log(error);
+            });
+
+        };
     </script>
 </body>
 </html>
