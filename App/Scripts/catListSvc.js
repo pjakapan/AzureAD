@@ -1,7 +1,7 @@
 ﻿'use strict';
 angular.module('catApp')
 .factory('catListSvc', ['$http', function ($http) { 
-    var apiUrl = 'https://together.azure-api.net';
+    var apiUrl = 'https://tgtapidemo.azure-api.net/tun/login';
     return {
         getItems : function(){
             return $http.get(apiUrl + '/login');
