@@ -43,7 +43,8 @@
                 <div class="page-header">
                     <h1>Cat Manager 2017</h1>
                 </div>
-                <p onclick="getapi">This sample demonstrates how to take advantage of ADAL JS for adding Azure AD authentication to your AngularJS apps.</p>
+                <p This sample demonstrates how to take advantage of ADAL JS for adding Azure AD authentication to your AngularJS apps.</p>
+                <button onclick="getapi()">Click me</button>
             </div>
         </div>
         <div class="row">
@@ -72,6 +73,7 @@
         //    console.log("stop login");
         //}
         function getapi() {
+            console.log("starting getapi");
             var settings = {
                 "async": true,
                 "crossDomain": true,
