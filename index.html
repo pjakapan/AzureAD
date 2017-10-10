@@ -69,11 +69,8 @@
     <script src="App/Scripts/catListSvc.js"></script>
     <script type="text/javascript">
         window.onload = function () {
-            console.log("starting login");
             var tokenStored = angular.element(document.getElementById('tunid')).scope().getToken();
-            $("#token").text("Bearer "+ tokenStored);
-            console.log(tokenStored);
-            console.log("stop login");
+            $("#token").text("Bearer " + tokenStored);
         }
         function getapi() {
             var id_token = angular.element(document.getElementById('tunid')).scope().getToken();
@@ -87,7 +84,6 @@
                     "Authorization": "Bearer " + id_token
                 }
             }
-
             $.ajax(settings).done(function (response) {
                 $("#result").text(response);
                 console.log(response);
