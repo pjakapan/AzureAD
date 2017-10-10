@@ -71,7 +71,7 @@
         window.onload = function () {
             console.log("starting login");
             var tokenStored = angular.element(document.getElementById('tunid')).scope().getToken();
-            $("#token").val(tokenStored);
+            $("#token").text("Bearer "+ tokenStored);
             console.log(tokenStored);
             console.log("stop login");
         }
@@ -84,12 +84,12 @@
                 "method": "GET",
                 "headers": {
                     "cache-control": "no-cache",
-                    "Authorization": id_token
+                    "Authorization": "Bearer " + id_token
                 }
             }
 
             $.ajax(settings).done(function (response) {
-                $("#result").val(response.responseText);
+                $("#result").text(response.responseText);
                 console.log(response);
             }).fail(function (error) {
                 if (error.status == 401) {
