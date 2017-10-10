@@ -10,4 +10,10 @@ angular.module('catApp')
     $scope.isActive = function (viewLocation) {        
         return viewLocation === $location.path();
     };
+    $scope.getToken = function () {
+        var resource = "a78605c9-bd50-46af-a8b1-166fd0b2401e";
+        var tokenStored = authService.getCachedToken(resource);
+        return tokenStored
+    };
+
 }]);
