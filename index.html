@@ -109,9 +109,23 @@
             //         console.log(error.responseText);
             //     }
             // });
+            var data = null;
+            
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://jpetchan-func-demo.azurewebsites.net/api/ninetun?code=kKFw8a60Vf/SwX555TDsG9oPhGkJRpfBBEomWYB9vcNVzHHCJWKLSg==", true);
-            xhr.send();
+            xhr.withCredentials = true;
+            
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === 4) {
+                console.log(this.responseText);
+              }
+            });
+            
+            xhr.open("GET", "https://jpetchan-func-demo.azurewebsites.net/api/ninetun?code=kKFw8a60Vf/SwX555TDsG9oPhGkJRpfBBEomWYB9vcNVzHHCJWKLSg==");
+            xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+            xhr.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+            xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin, Content-Type, X-Auth-Token");
+            
+            xhr.send(data);
         };
     </script>
 </body>
