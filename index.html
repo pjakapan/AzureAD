@@ -85,7 +85,7 @@
 
         function getapi() {
             var isAuthenticated = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
-            if (isAuthenticated) {
+            if (!isAuthenticated) {
                 angular.element(document.getElementById('tunid')).scope().login();
             } else {
 
