@@ -78,11 +78,13 @@
             var settings = {
                 "async": true,
                 "crossDomain": true,
+                "xhrFields": { 
+                    "withCredentials":true 
+                },
                 "url": "https://projed-dev-fnc.azurewebsites.net/calc/subtract/7/2",
                 "method": "GET",
                 "headers": {
-                  "cache-control": "no-cache",
-                  "postman-token": "1cf92901-0b6c-15f0-b07b-dc2a1e3ac41c"
+                  "cache-control": "no-cache"
                 }
               }
 
