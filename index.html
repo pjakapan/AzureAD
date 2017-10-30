@@ -84,48 +84,31 @@
         }
 
         function getapi() {
-            // var id_token = angular.element(document.getElementById('tunid')).scope().getToken();
-            // var settings = {
-            //     "async": true,
-            //     "crossDomain": true,
-            //     "url": "https://jpetchan-func-demo.azurewebsites.net/api/ninetun?code=kKFw8a60Vf/SwX555TDsG9oPhGkJRpfBBEomWYB9vcNVzHHCJWKLSg==",
-            //     "method": "GET",
-            //     "credentials": "include",
-            //     "headers": {
-            //         "cache-control": "no-cache",
-            //         "Access-Control-Allow-Origin": "*",
-            //         "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-            //         "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-            //     }
-            // }
+            var id_token = angular.element(document.getElementById('tunid')).scope().getToken();
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://jpetchan-func-demo.azurewebsites.net/api/ninetun?code=kKFw8a60Vf/SwX555TDsG9oPhGkJRpfBBEomWYB9vcNVzHHCJWKLSg==",
+                "method": "GET",
+                "credentials": "include",
+                "headers": {
+                    "cache-control": "no-cache",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+                    "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+                }
+            }
 
-            // $.ajax(settings).done(function (response) {
-            //     $("#result").text(response);
-            // }).fail(function (error) {
-            //     if (error.status == 302) {
-            //         console.log(error.responseText);
-            //         angular.element(document.getElementById('tunid')).scope().login();
-            //     } else {
-            //         console.log(error.responseText);
-            //     }
-            // });
-            var data = null;
-            
-            var xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-            
-            xhr.addEventListener("readystatechange", function () {
-              if (this.readyState === 4) {
-                console.log(this.responseText);
-              }
+            $.ajax(settings).done(function (response) {
+                $("#result").text(response);
+            }).fail(function (error) {
+                if (error.status == 302) {
+                    console.log(error.responseText);
+                    angular.element(document.getElementById('tunid')).scope().login();
+                } else {
+                    console.log(error.responseText);
+                }
             });
-            
-            xhr.open("GET", "https://jpetchan-func-demo.azurewebsites.net/api/ninetun?code=kKFw8a60Vf/SwX555TDsG9oPhGkJRpfBBEomWYB9vcNVzHHCJWKLSg==");
-            xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-            xhr.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-            xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin, Content-Type, X-Auth-Token");
-            
-            xhr.send(data);
         };
     </script>
 </body>
