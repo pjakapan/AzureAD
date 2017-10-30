@@ -84,32 +84,37 @@
         }
 
         function getapi() {
-            var id_token = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
-            console.log(id_token);
-            var settings = {
-                "async": true,
-                "crossDomain": true,
-                "url": "https://jpetchan-func-demo.azurewebsites.net/api/ninetun?code=kKFw8a60Vf/SwX555TDsG9oPhGkJRpfBBEomWYB9vcNVzHHCJWKLSg==",
-                "method": "GET",
-                "credentials": "include",
-                "headers": {
-                    "cache-control": "no-cache",
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                    "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-                }
-            }
+            var isAuthenticated = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
+            if (isAuthenticated) {
+                angular.element(document.getElementById('tunid')).scope().login();
+            } else {
 
-            $.ajax(settings).done(function (response) {
-                $("#result").text(response.message);
-            }).fail(function (error) {
-                if (error.status == 302) {
-                    console.log(error.responseText);
-                    angular.element(document.getElementById('tunid')).scope().login();
-                } else {
-                    console.log(error.responseText);
+                console.log(id_token);
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://jpetchan-func-demo.azurewebsites.net/api/ninetun?code=kKFw8a60Vf/SwX555TDsG9oPhGkJRpfBBEomWYB9vcNVzHHCJWKLSg==",
+                    "method": "GET",
+                    "credentials": "include",
+                    "headers": {
+                        "cache-control": "no-cache",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+                        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+                    }
                 }
-            });
+
+                $.ajax(settings).done(function (response) {
+                    $("#result").text(response.message);
+                }).fail(function (error) {
+                    if (error.status == 302) {
+                        console.log(error.responseText);
+                        angular.element(document.getElementById('tunid')).scope().login();
+                    } else {
+                        console.log(error.responseText);
+                    }
+                });
+            }
         };
     </script>
 </body>
