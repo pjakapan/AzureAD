@@ -79,7 +79,13 @@
                 "async": true,
                 "crossDomain": true,
                 "url": "https://projed-dev-fnc.azurewebsites.net/calc/subtract/7/2",
-                "method": "GET"
+                "method": "GET",
+                "headers": {
+                    "cache-control": "no-cache",
+                    "Cookie": "ARRAffinity=93ad2e7cf8572308af1ea47b5a6125d6b6778911630249caca8d58ef84d9937b; AppServiceAuthSession=jqaY+b+xt21Mvda95n7CW8JBYjvAkKv/7RsOaPVA5WjxjyYi8l9KbEjCKYBO7jwfHZtBO8UxWolM/5oknYmJmWAIU85qGK1/w4vESe29MJMDhodRyS8YqfU/a1G/G0tGyPRXUPYyd6JGNWWquYR3Tu/3E3NYe2fMxfkY2DYF7qErD2u0OJfsVXDXFtWHdBJu7u82hI5gOI0BhdcGk9qGlFfDpauxLFJrbt5JmKFb6QUTAYT6skaLG0eUODgsvYnmJvLbULFukWSxZr8uVyLAWooDfF0NE6Tatz97pPn573+xl/kB38cYh/kSz/UlpInWVhEbvfOX2BBzb2QoKo4O2d/HNovJxyzbFrZGnXANPR+cq70JkT8pxQe2C+XySNKMiZ+MGUxbDYw52VecNI3LujafAD9nPKTmT693ff3aIrFMbLyM3205aj4fRSzBfdnWSH4K5tCTO2aRyjurTu1SrcGW4ndAJ0KvSR59yVYdPtm4NrV8267esvGMTHRiFFNFiZ6+FNMNNM/KYwRb5JNdkKlhgK2xiLTJi/6kwhUM10DWVoa7cgAyiAObf1xXGbPNoln9qXildQQM+J27T7YZ4Zkw7Re74INc2tblGvVrKi+gl0txEa6XGyphLJrbx41hY+zEYlsVM73zGW4Rvj63Ol8KgUgk55edonbGggBaKpM3P6DMGcPPH5jPR6fWV1qfVuTUxKyLkbIurHeDyDh3dCJlv1bV9RBmV5CzyArsYk6V+AOdUx9fGjB4YI7Phq5zkmVR2wiqJ1EGxFY82a+Kd9Te347DOMEeozQA8u1axu2NfiauU9YPKoU4A4GLrn54QXdNltu88lfZyuz2g8HWsJEgLfiHIRUnqb28qiqVKq8Vj4m/wy1po+LaBSBfSUMacdVzEkCiuFGu37QC9L5XLxCYUu6asVKpgPbJ+dumdYU=",
+                    "Host": "projed-dev-fnc.azurewebsites.net",
+                    "Upgrade-Insecure-Requests": 1
+                }
             }
 
             $.ajax(settings).done(function (response) {
