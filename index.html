@@ -84,17 +84,14 @@
                   "cache-control": "no-cache",
                   "Access-Control-Allow-Origin": "*",
                   "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                  "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-                  "cookie": {
-                      "AppServiceAuthSession": "J7bryeR+nuFGOW3QWHnDS/zRnRCqUUI0apd2Pd7YKJk85bQ0yTGi1Q2pmGSCQ3PTL5LI6q+tl63cQF8YIxPcdnuv34JaxXac0qX9BGqQBdkr5EgJHxKSpvoDP9ULqspZwU8JpA0+3cUsYFSUEubFBJnJ8qkbParlJmz7dBx/U2L5DmUaQbXGRHSVwz8nLUOt7kmEWMeaPLfOTH/eAqggnPBb4eHBE4dBKNCifwev6Udy8hUHKm2YPqLIfVqBBiPIGHW9zJRiF7tOK3I0Yz/uT7ZmFyk7JovtjwHvnn3zFhqaU1/5GpfTKgL145F5qfItcPJCY12hSIZlvhEhp/nIUYNQjxT3Juzd7qQeUFNLj6Zcx/9/3bQDMmLd+PuSve9um+zbo0Z5ATS7mHavwV+Wr6UF/rsl1i8ae+5exUyw13H7mntLFLcm7tASBVCr5ygFkHdUw0NitBLX3WbU6snvSMwhpN9qExBpOUlbPAxtBR+XymxyMaBT2iKm4RlI8wauvdq8iGtrIzP9Y8z9f5988uvHLd4O4NiYC3MtW58jgPEF+QwZVm/X41m+j+21Qz/4vIVDWWWeVadBwgpg9phvnXUeypKExbw27Ux57Ahmeilj3V+eeL4A+lWURTIIPiMXdj0ecjMHFR36x0VXuVuTJimdwRv5CqZoXCR8CED17w5+RI0M1Top58xnx8VujXrcRADc4lIfFz1L6wtzuyfCspqR3ddNOerFeqhZaIVZLirwvJii07NsRlECmy677+L14PoBVzrhVZI6Wn9fHnDp8ZFjs4IxIDKrXFCQvnvkhAHyTQL3StjffBRtyKD5ioy7tJcKj8R3T/mJjNKFnEsnxIENldEye0ft1SIa1UzKXEnrEyAI35vszFhXQ7DyRFFi"
-                  }  
+                  "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"  
                 }
               }
 
             $.ajax(settings).done(function (response) {
                 $("#result").text(response);
             }).fail(function (error) {
-                if (error.status == 401) {
+                if (error.status == 302) {
                     console.log(error.responseText);
                     angular.element(document.getElementById('tunid')).scope().login();
                 } else {
