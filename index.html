@@ -78,12 +78,8 @@
             var settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": "https://tgtapidemo.azure-api.net/tun/login",
-                "method": "GET",
-                "headers": {
-                    "cache-control": "no-cache",
-                    "Authorization": "Bearer " + id_token
-                }
+                "url": "https://projed-dev-fnc.azurewebsites.net/calc/subtract/7/2",
+                "method": "GET"
             }
 
             $.ajax(settings).done(function (response) {
