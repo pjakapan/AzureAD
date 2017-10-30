@@ -84,7 +84,8 @@
         }
 
         function getapi() {
-            var id_token = angular.element(document.getElementById('tunid')).scope().getToken();
+            var id_token = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
+            console.log(id_token);
             var settings = {
                 "async": true,
                 "crossDomain": true,
