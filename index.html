@@ -88,8 +88,6 @@
             if (!isAuthenticated) {
                 angular.element(document.getElementById('tunid')).scope().login();
             } else {
-
-                console.log(id_token);
                 var settings = {
                     "async": true,
                     "crossDomain": true,
