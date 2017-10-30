@@ -84,31 +84,36 @@
         }
 
         function getapi() {
-            var id_token = angular.element(document.getElementById('tunid')).scope().getToken();
-            var settings = {
-                "async": true,
-                "crossDomain": true,
-                "url": "https://jpetchan-func-demo.azurewebsites.net/api/ninetun?code=kKFw8a60Vf/SwX555TDsG9oPhGkJRpfBBEomWYB9vcNVzHHCJWKLSg==",
-                "method": "GET",
-                "credentials": "include",
-                "headers": {
-                    "cache-control": "no-cache",
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                    "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-                }
-            }
+            // var id_token = angular.element(document.getElementById('tunid')).scope().getToken();
+            // var settings = {
+            //     "async": true,
+            //     "crossDomain": true,
+            //     "url": "https://jpetchan-func-demo.azurewebsites.net/api/ninetun?code=kKFw8a60Vf/SwX555TDsG9oPhGkJRpfBBEomWYB9vcNVzHHCJWKLSg==",
+            //     "method": "GET",
+            //     "credentials": "include",
+            //     "headers": {
+            //         "cache-control": "no-cache",
+            //         "Access-Control-Allow-Origin": "*",
+            //         "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+            //         "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+            //     }
+            // }
 
-            $.ajax(settings).done(function (response) {
-                $("#result").text(response);
-            }).fail(function (error) {
-                if (error.status == 302) {
-                    console.log(error.responseText);
-                    angular.element(document.getElementById('tunid')).scope().login();
-                } else {
-                    console.log(error.responseText);
-                }
-            });
+            // $.ajax(settings).done(function (response) {
+            //     $("#result").text(response);
+            // }).fail(function (error) {
+            //     if (error.status == 302) {
+            //         console.log(error.responseText);
+            //         angular.element(document.getElementById('tunid')).scope().login();
+            //     } else {
+            //         console.log(error.responseText);
+            //     }
+            // });
+            var xhr = new XMLHttpRequest();
+            xhr.onerror = _handleError;
+            xhr.onload = _handleLoad;
+            xhr.open("GET", "https://jpetchan-func-demo.azurewebsites.net/api/ninetun?code=kKFw8a60Vf/SwX555TDsG9oPhGkJRpfBBEomWYB9vcNVzHHCJWKLSg==", true);
+            xhr.send();
         };
     </script>
 </body>
