@@ -78,16 +78,12 @@
     <script src="App/Scripts/catListCtrl.js"></script>
     <script src="App/Scripts/catListSvc.js"></script>
     <script type="text/javascript">
-        window.onload = function () {
-            var tokenStored = angular.element(document.getElementById('tunid')).scope().getToken();
-            $("#token").text("Bearer " + tokenStored);
-        }
-
         function getapi() {
             var isAuthenticated = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
             if (!isAuthenticated) {
                 angular.element(document.getElementById('tunid')).scope().login();
-            } else {
+            }
+            else {
                 var settings = {
                     "async": true,
                     "crossDomain": true,
