@@ -94,8 +94,8 @@
             else {
                 var key = "Together";
                 var text = "ddd";
-                var name = $("#name").text();
-                var lastname = $("#lastname").text();
+                var name = document.getElementById("name").value;
+                var lastname = document.getElementById("lastname").value;
                 var token = angular.element(document.getElementById('tunid')).scope().getToken();
                 var settings = {
                     "async": true,
