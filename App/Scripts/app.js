@@ -18,7 +18,7 @@ angular.module('catApp', ['ngRoute','AdalAngular'])
         {
             instance: 'https://login.microsoftonline.com/', 
             tenant: 'common',
-            clientId: 'b14a18fc-a5dc-4d67-ad55-45d8c4bf2e57',
+            clientId: 'c34b49f1-2cd5-400f-83c2-37f6efa9c63b',
             extraQueryParameter: 'nux=1',
             //cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
         },
