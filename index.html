@@ -92,11 +92,8 @@
                 angular.element(document.getElementById('tunid')).scope().login();
             }
             else {
-                var key = "Together";
-                var text = "ddd";
-                var name = document.getElementById("name").value;
-                var lastname = document.getElementById("lastname").value;
                 var token = angular.element(document.getElementById('tunid')).scope().getToken();
+                console.log(token);
                 var settings = {
                     "async": true,
                     "crossDomain": true,
@@ -104,11 +101,11 @@
                     "method": "GET",
                     "headers": {
                         "Authorization": "Bearer " + token
-                    },
-                    "processData": false
+                    }
                 }
                 $.ajax(settings).done(function (response) {
                     $("#result").text(response);
+                    console.log(response);
                 }).fail(function (error) {
                     console.log(error.responseText);
                 });
