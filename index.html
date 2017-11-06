@@ -100,7 +100,7 @@
                 var settings = {
                     "async": true,
                     "crossDomain": true,
-                    "url": "https://jpetchan-func-demo.azurewebsites.net/api/cdntoken?name="+ name +"&lastname="+ lastname,
+                    "url": "https://jpetchan-cdn-token-function.azurewebsites.net/api/cdntoken",
                     "method": "GET",
                     "headers": {
                         "Authorization": "Bearer " + token
@@ -108,7 +108,7 @@
                     "processData": false
                 }
                 $.ajax(settings).done(function (response) {
-                    $("#result").text("name "+ response.name +" Lastname "+ response.lastname);
+                    $("#result").text(response);
                 }).fail(function (error) {
                     console.log(error.responseText);
                 });
