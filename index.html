@@ -99,7 +99,7 @@
                         "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
                     },
                     "processData": false,
-                    "data": "{\r\n    \"key\": \""+ key +"\",\r\n    \"text\": \"ddd\"\r\n}"
+                    "data": "{\r\n    \"name\": \""+ key +"\",\r\n    \"lastname\": \"ddd\"\r\n}"
                 }
                 $.ajax(settings).done(function (response) {
                     $("#result").text(response);
