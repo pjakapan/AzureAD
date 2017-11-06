@@ -103,11 +103,6 @@
                     "url": "https://jpetchan-func-demo.azurewebsites.net/api/cdntoken?name="+ name +"&lastname="+ lastname,
                     "method": "GET",
                     "headers": {
-                        "content-type": "application/json",
-                        "cache-control": "no-cache",
-                        "Access-Control-Allow-Origin": "*",
-                        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
                         "Authorization": "Bearer " + token
                     },
                     "processData": false
