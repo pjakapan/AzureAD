@@ -102,7 +102,7 @@
                     "processData": false
                 }
                 $.ajax(settings).done(function (response) {
-                    $("#result").text(response);
+                    $("#result").text(response.name + response.lastname);
                 }).fail(function (error) {
                     console.log(error.responseText);
                 });
