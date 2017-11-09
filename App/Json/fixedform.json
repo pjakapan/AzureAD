@@ -1,0 +1,119 @@
+{
+    "components": [
+        {
+            "properties": {
+                "": ""
+            },
+            "conditional": {
+                "eq": "",
+                "when": null,
+                "show": ""
+            },
+            "tags": [],
+            "type": "number",
+            "validate": {
+                "custom": "",
+                "multiple": "",
+                "integer": "",
+                "step": "any",
+                "max": 1000000,
+                "min": 1,
+                "required": true
+            },
+            "clearOnHide": true,
+            "hidden": false,
+            "persistent": true,
+            "protected": false,
+            "defaultValue": "",
+            "suffix": "",
+            "prefix": "",
+            "placeholder": "Enter your number.",
+            "key": "a",
+            "label": "A",
+            "inputType": "number",
+            "tableView": true,
+            "input": true
+        },
+        {
+            "properties": {
+                "": ""
+            },
+            "conditional": {
+                "eq": "",
+                "when": null,
+                "show": ""
+            },
+            "tags": [],
+            "type": "number",
+            "validate": {
+                "custom": "",
+                "multiple": "",
+                "integer": "",
+                "step": "any",
+                "max": 1000000,
+                "min": 1,
+                "required": true
+            },
+            "clearOnHide": true,
+            "hidden": false,
+            "persistent": true,
+            "protected": false,
+            "defaultValue": "",
+            "suffix": "",
+            "prefix": "",
+            "placeholder": "Enter your number.",
+            "key": "b",
+            "label": "B",
+            "inputType": "number",
+            "tableView": true,
+            "input": true
+        },
+        {
+            "properties": {
+                "": ""
+            },
+            "conditional": {
+                "eq": "",
+                "when": null,
+                "show": ""
+            },
+            "tags": [],
+            "type": "button",
+            "theme": "primary",
+            "disableOnInvalid": true,
+            "action": "submit",
+            "block": false,
+            "rightIcon": "",
+            "leftIcon": "",
+            "size": "md",
+            "key": "submit",
+            "tableView": false,
+            "label": "Submit",
+            "input": true
+        },
+        {
+            "input": true,
+            "label": "Cancel",
+            "tableView": false,
+            "key": "cancel",
+            "size": "md",
+            "leftIcon": "",
+            "rightIcon": "",
+            "block": false,
+            "action": "custom",
+            "disableOnInvalid": false,
+            "theme": "warning",
+            "type": "button",
+            "tags": [],
+            "conditional": {
+                "show": "",
+                "when": null,
+                "eq": ""
+            },
+            "properties": {
+                "": ""
+            },
+            "custom": "form.reset(); form.render();"
+        }
+    ]
+}
