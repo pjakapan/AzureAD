@@ -90,9 +90,15 @@
             $("#token").text(token);
         }
         function genform(){
+            var isAuthenticated = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
+            if (!isAuthenticated) {
+                angular.element(document.getElementById('tunid')).scope().login();
+            }
+            else {
             var token = angular.element(document.getElementById('tunid')).scope().getToken();
             var cdn = loadcdn(token);
             Formio.createForm(document.getElementById('formio1'), loadForm(cdn));
+            }
         }
 
         function getapi() {
