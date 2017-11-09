@@ -15,6 +15,7 @@ angular.module('catApp', ['ngRoute','AdalAngular'])
     }).when("/Calc", {
         controller: "calc",
         templateUrl: "/AzureAD/App/Views/Calc.html",
+        requireADLogin: true,
     }).otherwise({ redirectTo: "/Home" });
 
     adalProvider.init(
