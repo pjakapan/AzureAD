@@ -12,6 +12,9 @@ angular.module('catApp', ['ngRoute','AdalAngular'])
     }).when("/UserData", {
         controller: "userDataCtrl",
         templateUrl: "/AzureAD/App/Views/UserData.html",
+    }).when("/Calc", {
+        controller: "calc",
+        templateUrl: "/AzureAD/App/Views/Calc.html",
     }).otherwise({ redirectTo: "/Home" });
 
     adalProvider.init(
