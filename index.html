@@ -144,7 +144,6 @@
                 'async': false,
                 'global': false,
                 'url': url,
-                'dataType': "json",
                 "method": "GET",
                 "headers": {
                     "cache-control": "no-cache",
@@ -157,7 +156,7 @@
             $.ajax(getsetting).done(function (data) {
                 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> CDN DONE");
                 console.log(data);
-                json = data;
+                json = data.cdn;
             }).fail(function (err){
                 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> CDN FAILED");
                 console.log(err);
