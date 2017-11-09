@@ -157,6 +157,8 @@
             $.ajax(getsetting).done(function (data) {
                 console.log(data);
                 json = data;
+            }).fail(function (err){
+                console.log(err);
             });
             return json;
         }
