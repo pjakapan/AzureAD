@@ -87,7 +87,7 @@
             var token = angular.element(document.getElementById('tunid')).scope().getToken();
             $("#token").text(token);
 
-            Formio.createForm(document.getElementById('formio1'), arrForm);
+            Formio.createForm(document.getElementById('formio1'), arrForm[0]);
         }
 
         function getapi() {
