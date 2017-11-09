@@ -45,7 +45,7 @@ $.ajax(getsetting).done(function (data) {
 });
 
 function loadForm(JsonFileName) {
-    var url = "/json/" + JsonFileName + ".json"
+    var url = "./json/" + JsonFileName + ".json"
     //var cdn = loadcdn();
     var json = null;
     var getsetting = {
