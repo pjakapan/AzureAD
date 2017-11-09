@@ -30,30 +30,7 @@ jQuery.each(myForm, function (i, val) {
     arrForm.push(loadForm(val.name));
 });
 
-function loadcdn(token) {
-    var url = "https://jpetchan-cdn-token.azurewebsites.net/api/cdntoken2"
-    //var cdn = loadcdn();
-    var json = null;
-    var getsetting = {
-        'async': false,
-        'global': false,
-        'url': url,
-        'dataType': "json",
-        "method": "GET",
-        "headers": {
-            "cache-control": "no-cache",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-            "Access-Control-Allow-Headers": "Origin, Content-Type, Authorization",
-            "Authorization": "Bearer " + token
-        }
-    }
-    $.ajax(getsetting).done(function (data) {
-        console.log(data);
-        json = data;
-    });
-    return json;
-}
+
 
 function loadForm(JsonFileName) {
     var url = "./App/Json/" + JsonFileName + ".json"
