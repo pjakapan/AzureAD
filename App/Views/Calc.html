@@ -2,23 +2,77 @@
     <h3>
         Calculate form
     </h3>
-    <p>{{userInfo.userName}}</p>
-    <p>aud:{{userInfo.profile.aud}}</p>
-    <p>iss:{{userInfo.profile.iss}}</p>
-    <p>iat:{{userInfo.profile.iat}}</p>
-    <p>nbf:{{userInfo.profile.nbf}}</p>
-    <p>exp:{{userInfo.profile.exp}}</p>
-    <p>ver:{{userInfo.profile.ver}}</p>
-    <p>tid:{{userInfo.profile.tid}}</p>
-    <p>amr:{{userInfo.profile.amr}}</p>
-    <p>oid:{{userInfo.profile.oid}}</p>
-    <p>upn:{{userInfo.profile.upn}}</p>
-    <p>unique_name:{{userInfo.profile.unique_name}}</p>
-    <p>sub:{{userInfo.profile.sub}}</p>
-    <p>family_name:{{userInfo.profile.family_name}}</p>
-    <p>given_name:{{userInfo.profile.given_name}}</p>
-    <p>pwd_exp:{{userInfo.profile.pwd_exp}}</p>
-    <p>pwd_url:{{userInfo.profile.pwd_url}}</p>
+    <div>
+        <button onclick="genform()">Click me</button>
+    </div>
+    <div class="col-lg-12" id="formio1"></div>
+    <p id="result">result</p>
 
 
 </div>
+
+<script type="text/javascript">
+
+    window.onload = function () {
+        var token = angular.element(document.getElementById('tunid')).scope().getToken();
+        $("#token").text(token);
+    }
+    function genform() {
+        var isAuthenticated = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
+        if (!isAuthenticated) {
+            angular.element(document.getElementById('tunid')).scope().login();
+        }
+        else {
+            var token = angular.element(document.getElementById('tunid')).scope().getToken();
+            var cdn = loadcdn(token);
+            Formio.createForm(document.getElementById('formio1'), loadForm(cdn));
+        }
+    }
+
+    function loadcdn(token) {
+        var url = "https://jpetchan-cdn-token.azurewebsites.net/api/cdntoken"
+        var json = null;
+        var getsetting = {
+            'async': false,
+            'global': false,
+            'url': url,
+            "method": "GET",
+            "headers": {
+                "cache-control": "no-cache",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "Origin, Content-Type, Authorization",
+                "Authorization": "Bearer " + token
+            }
+        }
+        $.ajax(getsetting).done(function (data) {
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> CDN DONE");
+            json = data.cdn;
+        }).fail(function (err) {
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> CDN FAILED");
+            console.log(err);
+        });
+        return json;
+    }
+
+    function loadForm(cdn) {
+        var url = "./App/Json/fixedform.json?cdn_token=" + cdn;
+        var json = null;
+        var getsetting = {
+            'async': false,
+            'global': false,
+            'url': url,
+            'dataType': "json",
+            "method": "GET"
+        }
+        $.ajax(getsetting).done(function (data) {
+            json = data;
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> FORM DONE");
+        }).fail(function (err) {
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> FORM FAIED");
+            console.log(err);
+        });
+        return json;
+    }
+
+</script>
