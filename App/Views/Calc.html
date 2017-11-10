@@ -2,6 +2,7 @@
     <h3>
         Calculate form
     </h3>
+
     <div>
         <button onclick="genform()">Click me</button>
     </div>
@@ -16,6 +17,7 @@
     window.onload = function () {
         var token = angular.element(document.getElementById('tunid')).scope().getToken();
         $("#token").text(token);
+        genform();
     }
     function genform() {
         var isAuthenticated = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
