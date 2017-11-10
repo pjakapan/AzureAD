@@ -84,6 +84,7 @@
         window.onload = function () {
             var token = angular.element(document.getElementById('tunid')).scope().getToken();
             $("#token").text(token);
+            genform();
         }
         function genform() {
             var isAuthenticated = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
