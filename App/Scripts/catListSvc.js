@@ -1,10 +1,10 @@
 ﻿'use strict';
 angular.module('catApp')
 .factory('catListSvc', ['$http', function ($http) { 
-    var apiUrl = 'https://tgtapidemo.azure-api.net/tun/login';
+    var apiUrl = 'https://jpetchan-cdn-token.azurewebsites.net/api';
     return {
         getItems : function(){
-            return $http.get(apiUrl + '/login');
+            return $http.get(apiUrl + '/cdntoken');
         },
         getItem : function(id){
             return $http.get(apiUrl + '/api/CatList/' + id);
