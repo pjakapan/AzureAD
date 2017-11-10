@@ -31,10 +31,10 @@
             }
         }
         $.ajax(getsetting).done(function (data) {
-            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> CDN DONE");
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> DONE CDN");
             json = data.cdn;
         }).fail(function (err) {
-            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> CDN FAILED");
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> FAILED CDN");
             console.log(err);
         });
         return json;
@@ -52,9 +52,9 @@
         }
         $.ajax(getsetting).done(function (data) {
             json = data;
-            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> FORM DONE");
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> DONE CALC FORM");
         }).fail(function (err) {
-            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> FORM FAIED");
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> FAIED CALC FORM");
             console.log(err);
         });
         return json;
