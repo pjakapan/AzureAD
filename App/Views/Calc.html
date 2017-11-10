@@ -1,5 +1,64 @@
 ﻿<h3></h3>
-    Calculate form</h3>
+Calculate form</h3>
 <hr>
 <br>
 <div class="col-lg-12" id="formio1"></div>
+
+<script type="text/javascript">
+
+    var isAuthenticated = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
+    if (!isAuthenticated) {
+        angular.element(document.getElementById('tunid')).scope().login();
+    }
+    else {
+        var token = angular.element(document.getElementById('tunid')).scope().getToken();
+        var cdn = loadcdn(token);
+        Formio.createForm(document.getElementById('formio1'), loadForm(cdn));
+    }
+    function loadcdn(token) {
+        var url = "https://jpetchan-cdn-token.azurewebsites.net/api/cdntoken"
+        var json = null;
+        var getsetting = {
+            'async': false,
+            'global': false,
+            'url': url,
+            "method": "GET",
+            "headers": {
+                "cache-control": "no-cache",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "Origin, Content-Type, Authorization",
+                "Authorization": "Bearer " + token
+            }
+        }
+        $.ajax(getsetting).done(function (data) {
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> CDN DONE");
+            json = data.cdn;
+        }).fail(function (err) {
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> CDN FAILED");
+            console.log(err);
+        });
+        return json;
+    }
+
+    function loadForm(cdn) {
+        var url = "./App/Json/fixedform.json?cdn_token=" + cdn;
+        var json = null;
+        var getsetting = {
+            'async': false,
+            'global': false,
+            'url': url,
+            'dataType': "json",
+            "method": "GET"
+        }
+        $.ajax(getsetting).done(function (data) {
+            json = data;
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> FORM DONE");
+        }).fail(function (err) {
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> FORM FAIED");
+            console.log(err);
+        });
+        return json;
+    }
+
+</script>

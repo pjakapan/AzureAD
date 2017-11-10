@@ -79,71 +79,11 @@
     <script src="App/Scripts/userDataCtrl.js"></script>
     <script src="App/Scripts/catListCtrl.js"></script>
     <script src="App/Scripts/calc.js"></script>
-    <script type="text/javascript">
-
+    <script src="text/javascript">
         window.onload = function () {
             var token = angular.element(document.getElementById('tunid')).scope().getToken();
             $("#token").text(token);
-            genform();
         }
-        function genform() {
-            var isAuthenticated = angular.element(document.getElementById('tunid')).scope().userInfo.isAuthenticated;
-            if (!isAuthenticated) {
-                angular.element(document.getElementById('tunid')).scope().login();
-            }
-            else {
-                var token = angular.element(document.getElementById('tunid')).scope().getToken();
-                var cdn = loadcdn(token);
-                Formio.createForm(document.getElementById('formio1'), loadForm(cdn));
-            }
-        }
-
-        function loadcdn(token) {
-            var url = "https://jpetchan-cdn-token.azurewebsites.net/api/cdntoken"
-            var json = null;
-            var getsetting = {
-                'async': false,
-                'global': false,
-                'url': url,
-                "method": "GET",
-                "headers": {
-                    "cache-control": "no-cache",
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                    "Access-Control-Allow-Headers": "Origin, Content-Type, Authorization",
-                    "Authorization": "Bearer " + token
-                }
-            }
-            $.ajax(getsetting).done(function (data) {
-                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> CDN DONE");
-                json = data.cdn;
-            }).fail(function (err) {
-                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> CDN FAILED");
-                console.log(err);
-            });
-            return json;
-        }
-
-        function loadForm(cdn) {
-            var url = "./App/Json/fixedform.json?cdn_token=" + cdn;
-            var json = null;
-            var getsetting = {
-                'async': false,
-                'global': false,
-                'url': url,
-                'dataType': "json",
-                "method": "GET"
-            }
-            $.ajax(getsetting).done(function (data) {
-                json = data;
-                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> FORM DONE");
-            }).fail(function (err) {
-                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> FORM FAIED");
-                console.log(err);
-            });
-            return json;
-        }
-
     </script>
 </body>
 
